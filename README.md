@@ -1,6 +1,11 @@
 # EzConfig
 Easy to use expandable configuration reader in Python
 
+# How to use:
+1. Download both ezconf.py and merrors.py and place them into your project folder.
+2. Create a new config with basic values given in the `example_config.json`
+3. Enjoy!
+
 Example (located in tests.py):
 ```Python
 # Import EzConfig
