@@ -1,0 +1,2 @@
+language = "bash"
+run = "poetry run python3.8 tests.py"
