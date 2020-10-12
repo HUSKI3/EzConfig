@@ -14,5 +14,3 @@ print(config.get("extra-info","packages"))
 # Get pretty json
 print("\nGet pretty print\n")
 print(config.pretty())
-
-
