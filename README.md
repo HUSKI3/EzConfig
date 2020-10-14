@@ -24,6 +24,10 @@ print(config.get("extra-info","packages"))
 # Get pretty json
 print("\nGet pretty print\n")
 print(config.pretty())
+# Add object
+config.add("Tests","none")
+# check results
+print(config.pretty())
 ```
 
 Example of the config.json:
@@ -42,4 +46,4 @@ Example of the config.json:
 ```
 
 Result
-![image](https://media.discordapp.net/attachments/755610961640947736/765152659434110986/unknown.png)
+![image](https://media.discordapp.net/attachments/691415466840948777/765940745604562955/unknown.png)
