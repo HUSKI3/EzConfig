@@ -18,3 +18,7 @@ print(config.pretty())
 config.add("Tests","none")
 # check results
 print(config.pretty())
+# Update object
+config.update("Tests","banana lol kek")
+# check results
+print(config.pretty())

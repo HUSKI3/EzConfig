@@ -1,1 +1,1 @@
-{"name": "Example Application", "version": "0.0.1", "run_script": "tests.py", "author": "Linkus", "license": "Apache 2", "extra-info": {"packages": "merrors, ezconfig", "desc": "Easier configs for python"}, "Tests": "none"}
+{"name": "Example Application", "version": "0.0.1", "run_script": "tests.py", "author": "Linkus", "license": "Apache 2", "extra-info": {"packages": "merrors, ezconfig", "desc": "Easier configs for python"}, "Tests": "banana lol kek"}

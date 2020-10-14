@@ -62,6 +62,21 @@ class config:
       quit()
     else:
       return var_val
+  
+  def update(self,var,*args):
+    """
+    Update a variable
+    :param var: variable to update
+    """
+    #update datajson
+    self.read(self.filename)
+    try:
+      self.datajson[str(var)] = str(args[0])
+    except Exception as e:
+      merrors.error("could not update variable, does it exist? Did you parse a new value? Python error: "+str(e))
+    jsonFile = open(str(self.filename), "w+")
+    jsonFile.write(json.dumps(self.datajson))
+    jsonFile.close()
 
   def pretty(self):
     """
@@ -75,6 +90,7 @@ class config:
     except Exception as e:
       merrors.error("could not pretty print, did you load the config? Python error: "+str(e))
       quit()
+
   def add(self,name,var):
     file = open(str(self.filename), "w")
     self.datajson[str(name)] = str(var)
