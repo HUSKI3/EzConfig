@@ -14,11 +14,6 @@ class config:
 
   def __init__(self):
     self.filename = ""
-    self.name = ""
-    self.version = ""
-    self.run_script = ""
-    self.author = ""
-    self.license = ""
     self.datajson = None
 
   def read(self,filename):
@@ -38,12 +33,9 @@ class config:
         else:
           print("could not load "+str(filename)+". Python error: "+str(e))
           quit()
-      self.name = datajson["name"]
-      self.version = datajson["version"]
-      self.run_script = datajson["run_script"]
-      self.author = datajson["author"]
-      self.license = datajson["license"]
       self.datajson = datajson
+      self.filename = filename
+      f.close()
 
   def get(self,var,*args):
     """
@@ -51,6 +43,8 @@ class config:
     :param var: variable to get
     :return var_val:
     """
+    #update datajson
+    self.read(self.filename)
     try:
       var_val = self.datajson[str(var)]
       if bool(args)!=False:
@@ -74,8 +68,15 @@ class config:
     Return pretty print
     :return prettyprint:
     """
+    #update datajson
+    self.read(self.filename)
     try:
       return json.dumps(self.datajson, indent=4, sort_keys=True)
     except Exception as e:
       merrors.error("could not pretty print, did you load the config? Python error: "+str(e))
       quit()
+  def add(self,name,var):
+    file = open(str(self.filename), "w")
+    self.datajson[str(name)] = str(var)
+    json.dump(self.datajson,file)
+    file.close()
