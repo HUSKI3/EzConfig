@@ -53,12 +53,12 @@ class config:
         return json.loads(str(var_val))[str(args[0])]
     except Exception as e:
       if mer == True:
-        merrors.error("could not get variable ["+str(var)+"] does it exist in config.json? Python error: "+str(e))
+        merrors.error("[1] could not get variable ["+str(var)+"] does it exist in config.json? Python error: "+str(e))
         quit()
       else:
         print(e)
     if var_val == None:
-      merrors.error("could not get variable ["+str(var)+"]. It equals to None, is there a python problem?")
+      merrors.error("[2] could not get variable ["+str(var)+"]. It equals to None, is there a python problem?")
       quit()
     else:
       return var_val
@@ -90,6 +90,22 @@ class config:
     except Exception as e:
       merrors.error("could not pretty print, did you load the config? Python error: "+str(e))
       quit()
+
+  def nested(self,main,name,var):
+    self.read(self.filename)
+    tmp = []
+    try:
+      old_nested = self.get(str(main))
+    except Exception as e:
+      merrors.error("could not create a nested value, does the main value exist? Python error: "+str(e))
+      quit()
+    for elem in old_nested:
+      tmp.append(elem)
+    tmp.append({str(name):str(var)})
+    self.datajson[str(main)] = tmp
+    file = open(str(self.filename), "w")
+    json.dump(self.datajson,file)
+    file.close()
 
   def add(self,name,var):
     file = open(str(self.filename), "w")
