@@ -21,6 +21,13 @@ print(config.get("name"))
 # Get nested values
 print("\nGet nested value\n")
 print(config.get("extra-info","packages"))
+# Add more nested values
+print("\nCreat new main nested value")
+config.add("Message Data","")
+config.nested("Message Data","message count","30")
+print("\nAdding second nested entry")
+config.nested("Message Data","last message","14/10/2020")
+config.nested("Message Data","last user to send a message","Test")
 # Get pretty json
 print("\nGet pretty print\n")
 print(config.pretty())

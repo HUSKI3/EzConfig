@@ -1,1 +1,1 @@
-{"name": "Example Application", "version": "0.0.1", "run_script": "tests.py", "author": "Linkus", "license": "Apache 2", "extra-info": {"packages": "merrors, ezconfig", "desc": "Easier configs for python"}, "Tests": "banana lol kek"}
+{"name": "Example", "extra-info": [{"packages": "Python"}], "Test Data": [{"line count": "27"}, {"Progammer sanity": "-100"}, {"Testing Date": "16/10/2020"}], "Tests": "none"}

@@ -28,7 +28,7 @@ class config:
         datajson = json.loads(data)
       except Exception as e:
         if mer == True:
-          merrors.error("could not load "+str(filename)+". Python error: "+str(e))
+          merrors.error('could not load '+str(filename)+', add a basic entry to the config like {"name":"Example"}. Python error: '+str(e))
           quit()
         else:
           print("could not load "+str(filename)+". Python error: "+str(e))
